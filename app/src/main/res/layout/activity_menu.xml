@@ -6,11 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
 
-    <!-- Botón 1 -->
 
-    <!-- Botón 2 -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/creditosfoto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="ContentDescription" />
 
-    <!-- Botón 3 -->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="326dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loguito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/myConversacionalButton1"
@@ -32,7 +55,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button_menu"
-        android:text="Cargar partida"
+        android:text="Creditos"
+        android:onClick="showCredits"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@id/myConversacionalButton1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +79,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.954"
         app:layout_constraintWidth_percent="0.3" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

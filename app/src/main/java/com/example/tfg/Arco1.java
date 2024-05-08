@@ -1,4 +1,5 @@
 package com.example.tfg;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -33,6 +34,7 @@ public class Arco1 {
     private int counter6a;
 
     private int counter6b;
+    private int counterENDb;
 
     /* TODO: Hacer que las funcionalidades propias de un arco/escena sean genéricos:
     mostrar diálogo, mostrar botones para decisiones, cambios de escena...
@@ -53,12 +55,13 @@ public class Arco1 {
         ArrayList<Dialogo> conversacionArco5b = cargarConversacionDesdeArchivo("arco5b.csv");
         ArrayList<Dialogo> conversacionArco6a = cargarConversacionDesdeArchivo("arco6a.csv");
         ArrayList<Dialogo> conversacionArco6b = cargarConversacionDesdeArchivo("arco6b.csv");
+        ArrayList<Dialogo> conversacionArcoFinalb = cargarConversacionDesdeArchivo("arcofinalb.csv");
         ArrayList<Dialogo> opciones = cargarConversacionDesdeArchivo("choices.csv");
 
 
         // Archivo "badEnding"
         // Pasamos la lista de diálogos al método de mostrar conversación
-        mostrarConversacion(conversacionArco1, conversacionArco2,conversacionArco3,conversacionArco4,conversacionArco5a,conversacionArco5b,conversacionArco6a,conversacionArco6b, opciones);
+        mostrarConversacion(conversacionArco1, conversacionArco2,conversacionArco3,conversacionArco4,conversacionArco5a,conversacionArco5b,conversacionArco6a,conversacionArco6b,conversacionArcoFinalb, opciones);
 
         reproducirSonido();
     }
@@ -81,7 +84,7 @@ public class Arco1 {
             throw new RuntimeException(e);
         }
     }
-    public void mostrarConversacion(ArrayList<Dialogo> conversacion, ArrayList<Dialogo>arco2, ArrayList<Dialogo>arco3, ArrayList<Dialogo>arco4, ArrayList<Dialogo>arco5a,ArrayList<Dialogo>arco5b,ArrayList<Dialogo>arco6a,ArrayList<Dialogo>arco6b, ArrayList<Dialogo>choices) {
+    public void mostrarConversacion(ArrayList<Dialogo> conversacion, ArrayList<Dialogo>arco2, ArrayList<Dialogo>arco3, ArrayList<Dialogo>arco4, ArrayList<Dialogo>arco5a,ArrayList<Dialogo>arco5b,ArrayList<Dialogo>arco6a,ArrayList<Dialogo>arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo>choices) {
         mediaPlayer = MediaPlayer.create(mainActivity, R.raw.musica1);
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
@@ -116,7 +119,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter > 35){
-                            acto2(arco2, arco3,arco4, arco5a,arco5b,arco6a,arco6b, choices);
+                            acto2(arco2, arco3,arco4, arco5a,arco5b,arco6a,arco6b,arcofinalb, choices);
                         }
                     }
                 });
@@ -154,12 +157,18 @@ public class Arco1 {
         });
     }
 
-    public void acto2(ArrayList<Dialogo> arco2, ArrayList<Dialogo> arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b, ArrayList<Dialogo>choices) {
+    public void acto2(ArrayList<Dialogo> arco2, ArrayList<Dialogo> arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo>choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
         Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
         Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
         // Establecer el límite de líneas inicial
         textViewGameInfo.setMaxLines(2);
         // Configurar el desplazamiento vertical en el TextView
@@ -189,7 +198,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter2 > 15) {
-                            acto3(arco3, arco4, arco5a, arco5b,arco6a,arco6b, choices);
+                            acto3(arco3, arco4, arco5a, arco5b,arco6a,arco6b,arcofinalb, choices);
                         }
                     }
                 });
@@ -227,12 +236,18 @@ public class Arco1 {
         });
     }
 
-    public void acto3(ArrayList<Dialogo>arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b, ArrayList<Dialogo>choices) {
+    public void acto3(ArrayList<Dialogo>arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo>choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
         Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
         Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
         // Establecer el límite de líneas inicial
         textViewGameInfo.setMaxLines(2);
         // Configurar el desplazamiento vertical en el TextView
@@ -250,7 +265,7 @@ public class Arco1 {
                 if(counter3 < arco3.size()) {
                     mostrarDialogo(textViewGameInfo, arco3.get(counter3));
 
-                    if (counter3 == 20) {
+                    if (counter3 == 19) {
                         conversationalButton1.setText("Deshacer el equipaje");
                         conversationalButton2.setText("Abrir la botella de whiskey de la mesa y beber");
                         conversationalButton3.setText("Leer un libro que trajiste del viaje");
@@ -260,9 +275,9 @@ public class Arco1 {
                 conversationalButton1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (counter3 > 20) {
+                        if (counter3 > 19) {
                             mostrarDialogo(textViewGameInfo, choices.get(7));
-                            counter3=20;
+                            counter3=19;
                         }
                     }
                 });
@@ -270,9 +285,9 @@ public class Arco1 {
                 conversationalButton2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (counter3 > 20) {
+                        if (counter3 > 19) {
                             mostrarDialogo(textViewGameInfo, choices.get(8));
-                            counter3=20;
+                            counter3=19;
                         }
                     }
                 });
@@ -280,9 +295,9 @@ public class Arco1 {
                 conversationalButton3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (counter3 > 20) {
+                        if (counter3 > 19) {
                             mostrarDialogo(textViewGameInfo, choices.get(9));
-                            counter3=20;
+                            counter3=19;
                         }
                     }
                 });
@@ -290,8 +305,8 @@ public class Arco1 {
                 conversationalButton4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (counter3 > 19) {
-                            acto4(arco4, arco5a,arco5b,arco6a,arco6b, choices);
+                        if (counter3 > 18) {
+                            acto4(arco4, arco5a,arco5b,arco6a,arco6b,arcofinalb, choices);
                         }
                     }
                 });
@@ -300,12 +315,18 @@ public class Arco1 {
         });
     }
 
-    public void acto4(ArrayList<Dialogo>arco4,ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b, ArrayList<Dialogo>choices) {
+    public void acto4(ArrayList<Dialogo>arco4,ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b, ArrayList<Dialogo>arcofinalb,ArrayList<Dialogo>choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
         Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
         Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
         // Establecer el límite de líneas inicial
         textViewGameInfo.setMaxLines(2);
         // Configurar el desplazamiento vertical en el TextView
@@ -343,7 +364,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter4 > 10) {
-                           preludio_b(arco5b,arco6b,choices);
+                           preludio_b(arco5b,arco6b,arcofinalb,choices);
                         }
                     }
                 });
@@ -377,6 +398,12 @@ public class Arco1 {
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
         Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
         Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
         // Establecer el límite de líneas inicial
         textViewGameInfo.setMaxLines(2);
         // Configurar el desplazamiento vertical en el TextView
@@ -405,12 +432,18 @@ public class Arco1 {
             }
         });
     }
-    public void preludio_b(ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6b, ArrayList<Dialogo> choices) {
+    public void preludio_b(ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo> choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
         Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
         Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
         // Establecer el límite de líneas inicial
         textViewGameInfo.setMaxLines(2);
         // Configurar el desplazamiento vertical en el TextView
@@ -469,7 +502,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter5b > 37) {
-                            finalB(arco6b,choices);
+                            finalB(arco6b,arcofinalb,choices);
                         }
                     }
                 });
@@ -478,12 +511,18 @@ public class Arco1 {
     }
 
 
-    public void finalB(ArrayList<Dialogo> arco6b, ArrayList<Dialogo> choices) {
+    public void finalB(ArrayList<Dialogo> arco6b, ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo> choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
         Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
         Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
 
         // Establecer el límite de líneas inicial
         textViewGameInfo.setMaxLines(2);
@@ -506,13 +545,92 @@ public class Arco1 {
                     mostrarDialogo(textViewGameInfo, arco6b.get(counter6b));
 
                     // Modificar los botones en función del contador
-                    if (counter6b == 11) {
-                        conversationalButton1.setText("Podría acostarme en la habitación roja");
-                        conversationalButton2.setText("Podría mover el colchón de la habitación verde...");
-                        conversationalButton3.setText("Podría intentar dormir en esta habitación");
-                        conversationalButton4.setText("Podría acostarme en la habitación azul");
+                    if (counter6b == 18) {
+                        conversationalButton1.setText("Ir con ella");
+                        conversationalButton2.setText("¿A donde vamos?");
+                        conversationalButton3.setText("¿Que vamos a hacer?");
+                        conversationalButton4.setText("No estoy seguro...");
                     }
                 }
+                conversationalButton1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter6b > 17) {
+                            endB(arcofinalb,choices);
+                        }
+                    }
+                });
+
+                conversationalButton2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter6b > 18) {
+                            mostrarDialogo(textViewGameInfo, choices.get(15));
+                            counter6b=18;
+                        }
+                    }
+                });
+
+                conversationalButton3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter6b > 18) {
+                            mostrarDialogo(textViewGameInfo, choices.get(16));
+                            counter6b=18;
+                        }
+                    }
+                });
+
+                conversationalButton4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter6b > 18) {
+                            mostrarDialogo(textViewGameInfo, choices.get(17));
+                            counter6b=18;
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    public void endB(ArrayList<Dialogo> arcofinalb, ArrayList<Dialogo> choices) {
+        TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
+        Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
+        Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
+        Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
+        Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
+
+        // Establecer el límite de líneas inicial
+        textViewGameInfo.setMaxLines(2);
+
+        // Configurar el desplazamiento vertical en el TextView
+        textViewGameInfo.setMovementMethod(new ScrollingMovementMethod());
+
+        // Configurar el texto inicial con la primera línea
+        mostrarDialogo(textViewGameInfo, arcofinalb.get(0));
+
+        // Agregar clic para mostrar más líneas
+        counterENDb = 0;
+        textViewGameInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counterENDb = counterENDb + 1;
+
+                // Mostrar el siguiente texto en el TextView mientras haya contenido en la conversación
+                if (counterENDb < arcofinalb.size()) {
+                    mostrarDialogo(textViewGameInfo, arcofinalb.get(counterENDb));
+                } else {
+                // Se ha mostrado todo el diálogo, redirigir a la página de créditos
+                Intent intent = new Intent(mainActivity, CreditosActivity.class);
+                mainActivity.startActivity(intent);
+            }
             }
         });
     }

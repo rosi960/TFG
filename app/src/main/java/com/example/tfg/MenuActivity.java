@@ -107,4 +107,10 @@ public class MenuActivity extends AppCompatActivity {
         finishAffinity(); // Cierra la actividad actual y todas las actividades relacionadas
         System.exit(0); // Finaliza completamente la aplicación
     }
+
+    public void showCredits(View view) {
+        Intent intent = new Intent(MenuActivity.this, CreditosActivity.class);
+        startActivity(intent);
     }
+
+}
