@@ -55,13 +55,14 @@ public class Arco1 {
         ArrayList<Dialogo> conversacionArco5b = cargarConversacionDesdeArchivo("arco5b.csv");
         ArrayList<Dialogo> conversacionArco6a = cargarConversacionDesdeArchivo("arco6a.csv");
         ArrayList<Dialogo> conversacionArco6b = cargarConversacionDesdeArchivo("arco6b.csv");
+        ArrayList<Dialogo> conversacionArcoFinala = cargarConversacionDesdeArchivo("arcofinala.csv");
         ArrayList<Dialogo> conversacionArcoFinalb = cargarConversacionDesdeArchivo("arcofinalb.csv");
         ArrayList<Dialogo> opciones = cargarConversacionDesdeArchivo("choices.csv");
 
 
         // Archivo "badEnding"
         // Pasamos la lista de diálogos al método de mostrar conversación
-        mostrarConversacion(conversacionArco1, conversacionArco2,conversacionArco3,conversacionArco4,conversacionArco5a,conversacionArco5b,conversacionArco6a,conversacionArco6b,conversacionArcoFinalb, opciones);
+        mostrarConversacion(conversacionArco1, conversacionArco2,conversacionArco3,conversacionArco4,conversacionArco5a,conversacionArco5b,conversacionArco6a,conversacionArco6b,conversacionArcoFinalb,conversacionArcoFinala, opciones);
 
         reproducirSonido();
     }
@@ -84,7 +85,7 @@ public class Arco1 {
             throw new RuntimeException(e);
         }
     }
-    public void mostrarConversacion(ArrayList<Dialogo> conversacion, ArrayList<Dialogo>arco2, ArrayList<Dialogo>arco3, ArrayList<Dialogo>arco4, ArrayList<Dialogo>arco5a,ArrayList<Dialogo>arco5b,ArrayList<Dialogo>arco6a,ArrayList<Dialogo>arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo>choices) {
+    public void mostrarConversacion(ArrayList<Dialogo> conversacion, ArrayList<Dialogo>arco2, ArrayList<Dialogo>arco3, ArrayList<Dialogo>arco4, ArrayList<Dialogo>arco5a,ArrayList<Dialogo>arco5b,ArrayList<Dialogo>arco6a,ArrayList<Dialogo>arco6b,ArrayList<Dialogo>arcofinalb,ArrayList<Dialogo>arcofinala, ArrayList<Dialogo>choices) {
         mediaPlayer = MediaPlayer.create(mainActivity, R.raw.musica1);
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
@@ -119,7 +120,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter > 35){
-                            acto2(arco2, arco3,arco4, arco5a,arco5b,arco6a,arco6b,arcofinalb, choices);
+                            acto2(arco2, arco3,arco4, arco5a,arco5b,arco6a,arco6b,arcofinalb,arcofinala, choices);
                         }
                     }
                 });
@@ -157,7 +158,7 @@ public class Arco1 {
         });
     }
 
-    public void acto2(ArrayList<Dialogo> arco2, ArrayList<Dialogo> arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo>choices) {
+    public void acto2(ArrayList<Dialogo> arco2, ArrayList<Dialogo> arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb,ArrayList<Dialogo>arcofinala, ArrayList<Dialogo>choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
@@ -198,7 +199,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter2 > 15) {
-                            acto3(arco3, arco4, arco5a, arco5b,arco6a,arco6b,arcofinalb, choices);
+                            acto3(arco3, arco4, arco5a, arco5b,arco6a,arco6b,arcofinalb,arcofinala, choices);
                         }
                     }
                 });
@@ -236,7 +237,7 @@ public class Arco1 {
         });
     }
 
-    public void acto3(ArrayList<Dialogo>arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb, ArrayList<Dialogo>choices) {
+    public void acto3(ArrayList<Dialogo>arco3,ArrayList<Dialogo>arco4, ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b,ArrayList<Dialogo>arcofinalb,ArrayList<Dialogo>arcofinala, ArrayList<Dialogo>choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
@@ -306,7 +307,7 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter3 > 18) {
-                            acto4(arco4, arco5a,arco5b,arco6a,arco6b,arcofinalb, choices);
+                            acto4(arco4, arco5a,arco5b,arco6a,arco6b,arcofinalb,arcofinala, choices);
                         }
                     }
                 });
@@ -315,7 +316,7 @@ public class Arco1 {
         });
     }
 
-    public void acto4(ArrayList<Dialogo>arco4,ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b, ArrayList<Dialogo>arcofinalb,ArrayList<Dialogo>choices) {
+    public void acto4(ArrayList<Dialogo>arco4,ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco5b,ArrayList<Dialogo> arco6a,ArrayList<Dialogo> arco6b, ArrayList<Dialogo>arcofinalb,ArrayList<Dialogo>arcofinala,ArrayList<Dialogo>choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
@@ -355,7 +356,11 @@ public class Arco1 {
                     @Override
                     public void onClick(View v) {
                         if (counter4 > 10) {
-                            preludio_a(arco5a,arco6a,choices);
+                            preludio_a(arco5a,arco6a,arcofinala,choices);
+                            conversationalButton1.setText("-");
+                            conversationalButton2.setText("-");
+                            conversationalButton3.setText("-");
+                            conversationalButton4.setText("-");
                         }
                     }
                 });
@@ -365,6 +370,10 @@ public class Arco1 {
                     public void onClick(View v) {
                         if (counter4 > 10) {
                            preludio_b(arco5b,arco6b,arcofinalb,choices);
+                            conversationalButton1.setText("-");
+                            conversationalButton2.setText("-");
+                            conversationalButton3.setText("-");
+                            conversationalButton4.setText("-");
                         }
                     }
                 });
@@ -392,7 +401,7 @@ public class Arco1 {
             }
         });
     }
-    public void preludio_a(ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco6a, ArrayList<Dialogo> choices) {
+    public void preludio_a(ArrayList<Dialogo> arco5a,ArrayList<Dialogo> arco6a,ArrayList<Dialogo>arcofinala, ArrayList<Dialogo> choices) {
         TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
         Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
         Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
@@ -421,13 +430,52 @@ public class Arco1 {
                     mostrarDialogo(textViewGameInfo, arco5a.get(counter5a));
 
                     // Modificar los botones en función del contador
-                    if (counter5a == 11) {
-                        conversationalButton1.setText("Podría acostarme en la habitación roja");
-                        conversationalButton2.setText("Podría mover el colchón de la habitación verde...");
-                        conversationalButton3.setText("Podría intentar dormir en esta habitación");
-                        conversationalButton4.setText("Podría acostarme en la habitación azul");
+                    if (counter5a == 34) {
+                        conversationalButton1.setText("Sí");
+                        conversationalButton2.setText("N0");
+                        conversationalButton3.setText("No...");
+                        conversationalButton4.setText("No me obligues porfavor");
                     }
                 }
+
+                conversationalButton1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter5a > 34) {
+                            finalA(arco6a,arcofinala,choices);
+                        }
+                    }
+                });
+
+                conversationalButton2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter5a > 34) {
+                            mostrarDialogo(textViewGameInfo, choices.get(19));
+                            counter5a=34;
+                        }
+                    }
+                });
+
+                conversationalButton3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter5a > 34) {
+                            mostrarDialogo(textViewGameInfo, choices.get(20));
+                            counter5a=34;
+                        }
+                    }
+                });
+
+                conversationalButton4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (counter5a > 34) {
+                            mostrarDialogo(textViewGameInfo, choices.get(18));
+                            counter5a=34;
+                        }
+                    }
+                });
 
             }
         });
@@ -590,6 +638,47 @@ public class Arco1 {
                         }
                     }
                 });
+            }
+        });
+    }
+
+    public void finalA(ArrayList<Dialogo> arco6a, ArrayList<Dialogo>arcofinala, ArrayList<Dialogo> choices) {
+        TextView textViewGameInfo = mainActivity.findViewById(R.id.textViewGameInfo);
+        Button conversationalButton1 = mainActivity.findViewById(R.id.myConversacionalButton1);
+        Button conversationalButton2 = mainActivity.findViewById(R.id.myConversacionalButton2);
+        Button conversationalButton3 = mainActivity.findViewById(R.id.myConversacionalButton3);
+        Button conversationalButton4 = mainActivity.findViewById(R.id.myConversacionalButton4);
+
+        conversationalButton1.setText("-");
+        conversationalButton2.setText("-");
+        conversationalButton3.setText("-");
+        conversationalButton4.setText("-");
+
+
+        // Establecer el límite de líneas inicial
+        textViewGameInfo.setMaxLines(2);
+
+        // Configurar el desplazamiento vertical en el TextView
+        textViewGameInfo.setMovementMethod(new ScrollingMovementMethod());
+
+        // Configurar el texto inicial con la primera línea
+        mostrarDialogo(textViewGameInfo, arco6a.get(0));
+
+        // Agregar clic para mostrar más líneas
+        counter6a = 0;
+        textViewGameInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counter6a = counter6a + 1;
+
+                // Mostrar el siguiente texto en el TextView mientras haya contenido en la conversación
+                if (counter6a < arco6a.size()) {
+                    mostrarDialogo(textViewGameInfo, arco6a.get(counter6a));
+                } else {
+                    // Se ha mostrado todo el diálogo, redirigir a la página de créditos
+                    Intent intent = new Intent(mainActivity, CreditosActivity.class);
+                    mainActivity.startActivity(intent);
+                }
             }
         });
     }
