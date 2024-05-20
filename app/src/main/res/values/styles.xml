@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Estilo de la aplicación -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Configura la actividad para que sea de pantalla completa -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

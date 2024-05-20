@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="385dp"
-        android:layout_height="264dp"
+        android:layout_width="312dp"
+        android:layout_height="230dp"
         android:background="#99000000"
         android:gravity="center"
         android:text="Licencia de Software: Abierta\nDerechos de Autor: Protección de la narrativa.\n\nImágenes: Generadas por IA, licencia gratuita.\n\nLicencia de Uso: Permite uso y modificación no comercial del juego.\n\nProhibición de Uso Comercial sin Autorización: Se prohíbe el uso comercial sin autorización escrita.\n\nLicencia Abierta del Videojuego: Distribuido bajo licencia abierta.\n\nLicencias multimedia-Imágenes: Imágenes generadas por IA, licencia gratuita."
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922" />
+        app:layout_constraintVertical_bias="0.863" />
 
     <Button
         android:id="@+id/myConversacionalButton2"

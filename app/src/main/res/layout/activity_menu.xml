@@ -24,45 +24,45 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="326dp"
-        android:layout_height="200dp"
+        android:layout_width="228dp"
+        android:layout_height="123dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/loguito"
+        android:src="@drawable/tituloprincipal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/myConversacionalButton1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_button_menu"
-        android:text="Salir"
-        app:backgroundTint="@null"
-        android:onClick="exitApp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917"
-        app:layout_constraintWidth_percent="0.3" />
+        app:layout_constraintVertical_bias="0.059" />
 
     <Button
         android:id="@+id/myConversacionalButton2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button_menu"
-        android:text="Creditos"
         android:onClick="showCredits"
+        android:text="Creditos"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@id/myConversacionalButton1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.962"
+        app:layout_constraintVertical_bias="0.966"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <Button
+        android:id="@+id/myConversacionalButton1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button_menu"
+        android:onClick="exitApp"
+        android:text="Salir"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953"
         app:layout_constraintWidth_percent="0.3" />
 
     <Button
@@ -70,14 +70,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button_menu"
+        android:onClick="newGame"
         android:text="Nueva partida"
         app:backgroundTint="@null"
-        android:onClick="newGame"
         app:layout_constraintBottom_toTopOf="@id/myConversacionalButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954"
+        app:layout_constraintVertical_bias="0.958"
         app:layout_constraintWidth_percent="0.3" />
 
 

@@ -20,15 +20,36 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * MenuActivity es una actividad principal de la aplicación que proporciona un menú con opciones para
+ * iniciar un nuevo juego, ver los créditos y salir de la aplicación.
+ *
+ * @version 1.0
+ * @since 2024-05-20
+ *
+ * Autor: Rosa Martinez
+ */
 public class MenuActivity extends AppCompatActivity {
 
+    /**
+     * Método llamado cuando la actividad es creada. Configura el contenido de la actividad con el
+     * layout correspondiente.
+     *
+     * @param savedInstanceState Si la actividad está siendo recreada, este parámetro contiene los datos
+     *                           que proporcionó más recientemente {@link #onSaveInstanceState}.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
     }
 
+    /**
+     * Método llamado al hacer clic en el botón para iniciar un nuevo juego. Muestra un cuadro de diálogo
+     * para ingresar el nombre de un nuevo jugador y crea una nueva partida asociada a ese jugador.
+     *
+     * @param view La vista que fue clickeada.
+     */
     public void newGame(View view) {
         // Crear un LayoutInflater para el diseño personalizado
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -58,9 +79,8 @@ public class MenuActivity extends AppCompatActivity {
                                 // Crear una nueva partida asociada al jugador
                                 String fechaCreacion = getCurrentDateTime();
                                 Partida nuevaPartida = new Partida((int) jugadorId, fechaCreacion);
-                                dbHelper.registrarPartida(new Partida((int) jugadorId, fechaCreacion));
-
                                 long partidaId = dbHelper.registrarPartida(nuevaPartida);
+
                                 // Verificar si la partida se registró correctamente
                                 if (partidaId != -1) {
                                     Toast.makeText(MenuActivity.this, "Nuevo jugador y partida creados", Toast.LENGTH_SHORT).show();
@@ -71,9 +91,6 @@ public class MenuActivity extends AppCompatActivity {
                                 } else {
                                     Toast.makeText(MenuActivity.this, "Error al crear la partida", Toast.LENGTH_SHORT).show();
                                 }
-
-
-                                Toast.makeText(MenuActivity.this, "Nuevo jugador y partida creados", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(MenuActivity.this, "Error al crear el jugador", Toast.LENGTH_SHORT).show();
                             }
@@ -95,22 +112,36 @@ public class MenuActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    // Método para obtener la fecha y hora actual (puedes modificarlo según tus necesidades)
+    /**
+     * Método para obtener la fecha y hora actual en el formato especificado.
+     *
+     * @return La fecha y hora actual en formato "yyyy-MM-dd HH:mm:ss".
+     */
     private String getCurrentDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat dateFormat =        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
 
-    //Menu para salir
+    /**
+     * Método llamado al hacer clic en el botón para salir de la aplicación. Cierra todas las actividades
+     * relacionadas y finaliza la aplicación.
+     *
+     * @param view La vista que fue clickeada.
+     */
     public void exitApp(View view) {
         finishAffinity(); // Cierra la actividad actual y todas las actividades relacionadas
-        System.exit(0); // Finaliza completamente la aplicación
+        System.exit(        0); // Finaliza completamente la aplicación
     }
 
+    /**
+     * Método llamado al hacer clic en el botón para mostrar los créditos de la aplicación. Inicia la
+     * actividad CreditosActivity.
+     *
+     * @param view La vista que fue clickeada.
+     */
     public void showCredits(View view) {
         Intent intent = new Intent(MenuActivity.this, CreditosActivity.class);
         startActivity(intent);
     }
-
 }
